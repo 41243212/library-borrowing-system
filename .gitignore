@@ -1,0 +1,32 @@
+# macOS and editor files
+.DS_Store
+*/.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+~$*.docx
+~$_*.docx
+
+# Dependency folders
+vendor/
+node_modules/
+
+# Docker/database generated data
+db_data/
+mysql_data/
+databaseproject_mysql_data/
+
+# Test/build output
+coverage/
+dist/
+build/
