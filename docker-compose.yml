@@ -21,7 +21,7 @@ services:
   db:
     image: mysql:8.0
     container_name: csie_team14_mysql
-    restart: always
+    restart: no
     environment:
       MYSQL_ROOT_PASSWORD: rootPassword14
       MYSQL_DATABASE: csieDBTeam14
@@ -43,7 +43,7 @@ services:
   phpmyadmin:
     image: phpmyadmin:latest
     container_name: csie_team14_phpmyadmin
-    restart: always
+    restart: no
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
