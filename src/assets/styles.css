@@ -279,6 +279,20 @@ th {
     max-width: 420px;
 }
 
+.register-panel {
+    margin: 36px auto;
+    max-width: 760px;
+}
+
+.compact-heading {
+    margin-bottom: 18px;
+}
+
+.auth-switch {
+    margin: 14px 0 0;
+    text-align: center;
+}
+
 .stack {
     display: grid;
     gap: 14px;

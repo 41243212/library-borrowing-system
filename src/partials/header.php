@@ -29,6 +29,7 @@ $pageTitle = $pageTitle ?? 'Library Borrowing System';
                 <a href="/logout.php">登出</a>
             <?php else: ?>
                 <a href="/login.php">登入</a>
+                <a href="/register.php">註冊</a>
             <?php endif; ?>
         </nav>
     </header>

@@ -44,6 +44,7 @@ require __DIR__ . '/partials/header.php';
         </label>
         <button type="submit">登入</button>
     </form>
+    <p class="auth-switch muted">還沒有帳號？<a href="/register.php">註冊讀者帳號</a></p>
 </section>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>
