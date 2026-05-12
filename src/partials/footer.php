@@ -1,7 +1,7 @@
-    </main>
-    <footer class="footer">
-        <span>Database: csieDBTeam14</span>
-        <span>Tables follow the Y114_ prefix rule.</span>
-    </footer>
+</main>
+<footer class="footer">
+    <span>圖書館借閱管理資料庫系統</span>
+</footer>
 </body>
+
 </html>

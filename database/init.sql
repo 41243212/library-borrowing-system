@@ -1,3 +1,5 @@
+SET NAMES 'utf8mb4';
+
 CREATE DATABASE IF NOT EXISTS `csieDBTeam14`
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -96,12 +98,12 @@ INSERT INTO `Y114_book` (`isbn`, `title`, `author`, `category_id`, `publication_
   ('9789865025674', '資料庫系統概論', 'Abraham Silberschatz', 4, 2020, 'available'),
   ('9789864761528', 'PHP 與 MySQL Web 開發', 'Luke Welling', 5, 2017, 'available'),
   ('9789863126991', '深入淺出 SQL', 'Lynn Beighley', 4, 2018, 'borrowed'),
-  ('9789573289551', '人類大歷史', 'Yuval Noah Harari', 3, 2014, 'available'),
+  ('9786264014380', '系統分析與設計：使用UML(第二版)', '余顯強, 傅詠絮', 4, 2025, 'available'),
   ('9789862358263', 'Clean Code', 'Robert C. Martin', 5, 2008, 'available');
 
 INSERT INTO `Y114_student` (`student_no`, `name`, `email`, `phone`, `department`) VALUES
-  ('Y1140001', '王小明', 'student@example.com', '0912-345-678', '資訊工程學系'),
-  ('Y1140002', '林雅婷', 'student2@example.com', '0922-456-789', '資訊工程學系');
+  ('41243201', '王小明', '41243201@nfu.edu.tw', '0912-345-678', '資訊工程學系'),
+  ('41243202', '林雅婷', '41243202@nfu.edu.tw', '0922-456-789', '資訊工程學系');
 
 INSERT INTO `Y114_user` (`student_id`, `username`, `password_hash`, `role`, `status`) VALUES
   (NULL, 'admin', '$2y$10$aimdYQMKVoZr4blNfWNj7uttx8fY4QIXGswjXbI33l0xdca2YxW2W', 'admin', 'active'),
