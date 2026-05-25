@@ -107,6 +107,11 @@ a:hover {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
 }
 
+.profile-layout {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+}
+
 .card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -157,6 +162,26 @@ select {
     min-height: 40px;
     padding: 8px 10px;
     width: 100%;
+}
+
+input:disabled,
+select:disabled {
+    background: #f8fafc;
+    border-color: var(--line);
+    color: var(--muted);
+    cursor: not-allowed;
+    -webkit-text-fill-color: var(--muted);
+}
+
+.readonly-field input:disabled {
+    border-style: dashed;
+}
+
+.field-help {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.35;
 }
 
 .button,
@@ -482,6 +507,10 @@ th {
     }
 
     .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-layout {
         grid-template-columns: 1fr;
     }
 

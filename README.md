@@ -6,6 +6,7 @@ PHP + MySQL web app for the library borrowing management requirements.
 
 - Readers can search books by title, author, category, ISBN, or keyword.
 - Readers can register their own accounts.
+- Users can update their profile and password.
 - Readers can borrow available books and return active loans.
 - The system records borrow date, due date, return date, overdue days, and fines.
 - Each reader is limited to 3 active loans.
@@ -38,6 +39,7 @@ Main tables:
 - `src/library_actions.php`: Shared borrow, return, and barcode lookup logic used by normal and mobile flows.
 - `src/login.php`: Login page for admin and reader accounts.
 - `src/register.php`: Self-registration page for new reader accounts and student records.
+- `src/profile.php`: Profile and password page for updating account and contact information.
 - `src/logout.php`: Logs the current user out and redirects to login.
 - `src/index.php`: Main dashboard showing borrowing status, statistics, and reader history.
 - `src/books.php`: Book search page and normal reader borrow action buttons.

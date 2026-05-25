@@ -24,6 +24,7 @@ $pageTitle = $pageTitle ?? 'Library Borrowing System';
                     <a href="/admin.php">管理後台</a>
                     <a href="/reports.php">報表</a>
                 <?php endif; ?>
+                <a href="/profile.php">個人資料</a>
                 <span class="user-chip"><?= h($currentUser['username']) ?> ·
                     <?= h(role_label($currentUser['role'])) ?></span>
                 <a href="/logout.php">登出</a>
