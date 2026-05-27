@@ -3,20 +3,25 @@ require __DIR__ . '/config.php';
 
 $user = require_login();
 
-$stats = db()->query(
-    "SELECT
-        COUNT(*) AS total_books,
-        SUM(status = 'available') AS available_books,
-        SUM(status = 'borrowed') AS borrowed_books,
-        SUM(status = 'removed') AS removed_books
-     FROM Y114_book"
-)->fetch();
+$stats = null;
+$overdueCount = 0;
 
-$overdueCount = db()->query(
-    "SELECT COUNT(*) AS total
-     FROM Y114_borrow_record
-     WHERE status = 'borrowed' AND due_date < CURRENT_DATE"
-)->fetch()['total'];
+if ($user['role'] === 'admin') {
+    $stats = db()->query(
+        "SELECT
+            COUNT(*) AS total_books,
+            SUM(status = 'available') AS available_books,
+            SUM(status = 'borrowed') AS borrowed_books,
+            SUM(status = 'removed') AS removed_books
+         FROM Y114_book"
+    )->fetch();
+
+    $overdueCount = db()->query(
+        "SELECT COUNT(*) AS total
+         FROM Y114_borrow_record
+         WHERE status = 'borrowed' AND due_date < CURRENT_DATE"
+    )->fetch()['total'];
+}
 
 if ($user['role'] === 'reader') {
     $activeStmt = db()->prepare(
@@ -69,24 +74,26 @@ require __DIR__ . '/partials/header.php';
     <a class="button" href="/books.php">書籍查詢</a>
 </section>
 
-<section class="grid stats">
-    <div class="card">
-        <span class="muted">館藏總數</span>
-        <span class="stat-value"><?= (int) $stats['total_books'] ?></span>
-    </div>
-    <div class="card">
-        <span class="muted">可借閱</span>
-        <span class="stat-value"><?= (int) $stats['available_books'] ?></span>
-    </div>
-    <div class="card">
-        <span class="muted">已借出</span>
-        <span class="stat-value"><?= (int) $stats['borrowed_books'] ?></span>
-    </div>
-    <div class="card">
-        <span class="muted">逾期未還</span>
-        <span class="stat-value"><?= (int) $overdueCount ?></span>
-    </div>
-</section>
+<?php if ($user['role'] === 'admin' && $stats): ?>
+    <section class="grid stats">
+        <div class="card">
+            <span class="muted">館藏總數</span>
+            <span class="stat-value"><?= (int) $stats['total_books'] ?></span>
+        </div>
+        <div class="card">
+            <span class="muted">可借閱</span>
+            <span class="stat-value"><?= (int) $stats['available_books'] ?></span>
+        </div>
+        <div class="card">
+            <span class="muted">已借出</span>
+            <span class="stat-value"><?= (int) $stats['borrowed_books'] ?></span>
+        </div>
+        <div class="card">
+            <span class="muted">逾期未還</span>
+            <span class="stat-value"><?= (int) $overdueCount ?></span>
+        </div>
+    </section>
+<?php endif; ?>
 
 <section class="card" style="margin-top: 18px;">
     <h2><?= $user['role'] === 'admin' ? '目前借閱狀態' : '目前借閱中' ?></h2>
